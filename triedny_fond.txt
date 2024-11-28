@@ -1,0 +1,8 @@
+Karol, 5
+Jozo, 10
+Jano, 50
+Jozo, -5
+Viktor, 50
+Jano, 50
+Jozo, -5
+Viktor, 50
