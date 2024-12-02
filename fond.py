@@ -1,10 +1,23 @@
 
+def uloz_do_suboru(nazov_suboru, hodnoty):
+    try:
+        with open(nazov_suboru, 'w', encoding='utf-8') as f:
+            #f.write()
+            f.writelines(hodnoty)
+    except PermissionError:
+        raise PermissionError('chyba do suboru sa neda zapisovat')
+
+
 def nacitaj_subor(nazov_suboru):
-    with open(nazov_suboru, 'r', encoding='utf-8') as f:
-        nacitany_subor = f.readlines()
-        #nacitany_riadok = f.readline()
-        #nacitany_subor = f.read()
-        return nacitany_subor
+    try:
+        with open(nazov_suboru, 'r', encoding='utf-8') as f:
+            nacitany_subor = f.readlines()
+            #nacitany_riadok = f.readline()
+            #nacitany_subor = f.read()
+            return nacitany_subor
+    except FileNotFoundError:
+        uloz_do_suboru(nazov_suboru, [])
+        
     
 def registruj_vklad(meno, vklad, zoznam):
     zoznam.append(f'{meno}, {vklad}\n')
@@ -46,11 +59,6 @@ def zisti_zostatok_podla_mien(zoznam):
 
 
 
-
-def uloz_do_suboru(nazov_suboru, hodnoty):
-    with open(nazov_suboru, 'w', encoding='utf-8') as f:
-        #f.write()
-        f.writelines(hodnoty)
 
 
 
