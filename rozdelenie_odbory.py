@@ -17,7 +17,21 @@ def pocet_ziakov_podla_odboru(zoznam, odbor):
             pocet += 1
     return pocet
 
+def ziaci_podla_odboru(zoznam, odbor):
+    zoznam_ziakov = []
+    for ziak in zoznam:
+        rozdeleny = ziak.split(',') # ['Radovan Kliescik', 'IST\n']
+        meno = rozdeleny[0]
+        odbor_ziaka = rozdeleny[1].strip()
+        if odbor_ziaka == odbor:
+            zoznam_ziakov.append(meno)
+    return zoznam_ziakov
 
+
+
+
+def uloz_do_suboru(nazov, data):
+    pass
 
 
 nacitany_subor = nacitaj_subor('odbory.txt')
