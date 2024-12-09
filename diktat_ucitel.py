@@ -1,9 +1,11 @@
 
-
 def nacitaj_subor(nazov_suboru):
-    with open(nazov_suboru, 'r', encoding='utf-8') as f:
-        nacitany = f.read()
-        return nacitany
+    try:
+        with open(nazov_suboru, 'r', encoding='utf-8') as f:
+            nacitany = f.read()
+            return nacitany
+    except FileNotFoundError:
+        raise FileNotFoundError('chyba nacitania')
 
 def vytvor_diktat_ziak(text, nahradit):
     novy_text = ''
@@ -16,9 +18,11 @@ def vytvor_diktat_ziak(text, nahradit):
 
 
 def uloz_do_suboru(nazov_suboru, text):
-    with open(nazov_suboru, 'w', encoding='utf-8') as f:
-        f.write(text)
-
+    try:
+        with open(nazov_suboru, 'w', encoding='utf-8') as f:
+            f.write(text)
+    except PermissionError:
+        raise PermissionError('Chyba do suboru sa neda zapisat')
 
 
 nacitany_text = nacitaj_subor('ucitel.txt')
