@@ -24,16 +24,18 @@ def ziaci_podla_odboru(zoznam, odbor):
         meno = rozdeleny[0]
         odbor_ziaka = rozdeleny[1].strip()
         if odbor_ziaka == odbor:
-            zoznam_ziakov.append(meno)
+            zoznam_ziakov.append(meno+'\n')
     return zoznam_ziakov
 
 
-
-
 def uloz_do_suboru(nazov, data):
-    pass
+    with open(nazov, 'w', encoding='utf-8') as f:
+        f.writelines(data)
 
 
 nacitany_subor = nacitaj_subor('odbory.txt')
 #print(pocet_ziakov_spolu(nacitany_subor))
-print(pocet_ziakov_podla_odboru(nacitany_subor, 'IST'))
+#print(pocet_ziakov_podla_odboru(nacitany_subor, 'IST'))
+#print(ziaci_podla_odboru(nacitany_subor, 'IST'))
+uloz_do_suboru('IST.txt', ziaci_podla_odboru(nacitany_subor, 'IST'))
+uloz_do_suboru('Autotronik.txt', ziaci_podla_odboru(nacitany_subor, 'Autotronik'))
