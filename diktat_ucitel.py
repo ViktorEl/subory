@@ -15,4 +15,12 @@ def vytvor_diktat_ziak(text, nahradit):
     return novy_text
 
 
+def uloz_do_suboru(nazov_suboru, text):
+    with open(nazov_suboru, 'w', encoding='utf-8') as f:
+        f.write(text)
+
+
+
 nacitany_text = nacitaj_subor('ucitel.txt')
+diktat_ziak = vytvor_diktat_ziak(nacitany_text, ['y', 'Ý', 'i', 'Í'])
+uloz_do_suboru('ziak_diktat.txt', diktat_ziak)
