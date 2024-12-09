@@ -4,5 +4,8 @@ def nacitaj_subor(nazov):
         nacitany = f.readlines()
         return nacitany
 
+def pocet_ziakov_spolu(zoznam):
+    return len(zoznam)
+
 nacitany_subor = nacitaj_subor('odbory.txt')
-print(nacitany_subor)
+#print(pocet_ziakov_spolu(nacitany_subor))
