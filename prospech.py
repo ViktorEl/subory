@@ -30,15 +30,24 @@ def neprospievajuci(predmet, zoznam):
         znamka = rozdelenie[2]
         znamka = int(znamka)
         if znamka == 5 and predmet == predmet_ziaka:
-            novy_zoznam.append(meno_ziaka)
-    if len(novy_zoznam) == 0:
-        return '0 neprospievajucich ziakov'
-    else:
-        return novy_zoznam
+            novy_zoznam.append(f'{meno_ziaka}, {predmet_ziaka}\n')
 
+    return novy_zoznam
+
+def vsetci_neprospievajuci(zoznam):
+    n_siete = neprospievajuci('SIE', zoznam)
+    n_sjl = neprospievajuci('SJL', zoznam)
+    spolu_predmety = n_siete + n_sjl
+    return spolu_predmety
+
+def uloz_do_suboru(nazov, udaje):
+    with open(nazov, 'w', encoding='utf-8') as f:
+        f.writelines(udaje)
 
 
   
 ziaci = nacitanie_suboru('subor.txt')
 # print(znamka_podla_mena('Milan', 'SIE', ziaci))
-print(neprospievajuci('SJL', ziaci))
+#print(neprospievajuci('SJL', ziaci))
+neprospievajuci_vsetci_ziaci = vsetci_neprospievajuci(ziaci)
+uloz_do_suboru('subor2.txt', neprospievajuci_vsetci_ziaci)
