@@ -1,0 +1,15 @@
+Alex, SIE, 2
+Jozef, SJL, 2
+Robert, SIE, 3
+Milan, SIE, 1
+Erik, SIE, 4
+Erik, SJL, 1
+Radovan, SIE, 5
+Peter, SJL, 4
+Radovan, SJL, 3
+Marko, SJL, 2
+Samuel, SIE, 3
+Daniel, SJL, 3
+Marko, SIE, 5
+Kristián, SJL, 1
+Kristián, SIE, 2
